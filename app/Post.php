@@ -57,4 +57,28 @@ class Post extends Model
     public function getFullDataAttribute() {
         return $this->UserId.'----'.$this->Post;
     }
+
+    /**
+     * 定義修改器
+     * 修改器用在資料保存到資料庫之前進行一定處理
+     * 滿足需求後再存到資料庫
+     * 指定Post值之後會觸發
+     * Post都轉成小寫存至資料庫
+     * @param $value
+     */
+    public function setPostAttribute($value) {
+        $this->attributes['Post'] = strtolower($value);
+    }
+
+    /**
+     * 定義修改器
+     * 修改器用在資料保存到資料庫之前進行一定處理
+     * 滿足需求後再存到資料庫
+     * 指定UserId值之後會觸發
+     * UserId都+1存至資料庫
+     * @param $value
+     */
+    public function setUserIdAttribute($value) {
+        $this->attributes['UserId'] = $value+1;
+    }
 }
