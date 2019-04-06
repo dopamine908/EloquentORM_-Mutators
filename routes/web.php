@@ -36,3 +36,10 @@ Route::get('修改器_定義修改器', 'MutatorsController@setXXXXXXAttribute')
 */
 Route::get('修改器_日期修改器', 'MutatorsController@DateMutators');
 
+/*
+|--------------------------------------------------------------------------
+| 修改器 - 轉換屬性
+|--------------------------------------------------------------------------
+*/
+Route::get('修改器_轉換屬性', 'MutatorsController@AttributeCasting');
+

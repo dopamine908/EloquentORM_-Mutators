@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Flight;
 use Illuminate\Support\Carbon;
 
 class MutatorsController extends Controller
@@ -75,5 +76,24 @@ class MutatorsController extends Controller
          */
         $post->updated_at = Carbon::now();
         dump($post->save());
+    }
+
+    /**
+     * 修改器 - 轉換屬性
+     */
+    public function AttributeCasting() {
+        $flight = Flight::find(5);
+        /**
+         * Active = 0
+         * 由$case設定自動轉換為false
+         */
+        dump($flight->Active);
+
+        $flight = Flight::find(9);
+        /**
+         * Active = 1
+         * 由$case設定自動轉換為true
+         */
+        dump($flight->Active);
     }
 }
