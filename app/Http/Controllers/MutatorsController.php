@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Carbon;
 
 class MutatorsController extends Controller
 {
@@ -50,5 +51,29 @@ class MutatorsController extends Controller
          * 儲存的時候就是修改過後的值
          */
         dump($posts->save());
+    }
+
+    /**
+     * 修改器 - 日期修改器
+     */
+    public function DateMutators() {
+        $post = Post::find(1);
+        /**
+         * 覆寫過後的欄位
+         * 取出時就直接是Carbon的實例
+         */
+        dump($post->created_at);
+
+        /**
+         * 可以使用Carbon的function去轉換時間格式
+         */
+        dump($post->created_at->getTimestamp());
+
+        /**
+         * 把值設定成Carbon的實例
+         * 儲存的時候會自動存成與欄位符合的值
+         */
+        $post->updated_at = Carbon::now();
+        dump($post->save());
     }
 }

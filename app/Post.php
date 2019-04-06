@@ -21,6 +21,21 @@ class Post extends Model
     protected $primaryKey = 'OneToManyPostId';
 
     /**
+     * 預設的 Eloquent 會將 created_at 和 updated_at 欄位轉會成 Carbon的實例
+     * Carbon 套件擴充了 PHP DateTime 類別，並提供各種有用的方法
+     * 你可以自訂哪些日期需要自動被修改，只要覆寫模型的 $dates 屬性
+     *
+     * 預設只會把 created_at 和 updated_at 套用Carbon
+     * 要修改的話要複寫 $dates
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
      * 定義存取器
      * 其中 UserIid 是你想要存取的欄位，並要使用「駝峰式」命名
      * 當 Eloquent 在嘗試取得 UserIid / user_iid 屬性的值時

@@ -29,3 +29,10 @@ Route::get('存取器', 'MutatorsController@getXXXXXXAttribute');
 */
 Route::get('修改器_定義修改器', 'MutatorsController@setXXXXXXAttribute');
 
+/*
+|--------------------------------------------------------------------------
+| 修改器 - 日期修改器
+|--------------------------------------------------------------------------
+*/
+Route::get('修改器_日期修改器', 'MutatorsController@DateMutators');
+
